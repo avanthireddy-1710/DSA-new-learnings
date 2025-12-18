@@ -172,9 +172,6 @@ We can make the last layers equal by writing fib(0)
 here no.of calls in 1st layer=2^0,2nd layer=2^1,3rd layer=2^2,..........last layer=2^n-1
 total no.of calls=(2^n)-1 and constant work k is done in each call
 So, T.C = O(2^n)
-                                
+This is for bruteforce approach.If we use dynamic programming, T.C can be reduced to O(n)
+
 */
-
-
-
-
