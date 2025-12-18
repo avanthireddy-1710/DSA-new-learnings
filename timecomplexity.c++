@@ -11,9 +11,11 @@ Everytime worst case scenario should be considered to optimize the working.
   if a program runs optimally in worst case,it'll definitely be optimal in all other cases possible
 big O is a function in terms of n which represents time complexity of a given code/algorithm.
 
+
 time complexity of a for loop is O(n) because,
 a for loop graph is like y=x(y=no.of iterations & x=no.of terms input=n)
 so, y=n => time complexity = O(n)
+
 
 time complexity of a polynomial should be calculated as follows:
 1)Set all the coefficients to 1 
@@ -29,13 +31,16 @@ in worst case scenario T.C = O -> Upper bound
 in average case scenario T.C = 0 (theta)
 in best case scenario T.C = omega -> Lower bound
 
+
 Time Complexity in ascending order:
-O(1)-->O(log n)-->O(n)-->O(nlog n)-->O(n^2)-->O(n^3)-->O(2^n)-->O(n!)
+O(1)-->O(log n)-->O(√n)-->O(n)-->O(nlog n)-->O(n^2)-->O(n^3)-->O(2^n)-->O(n!)
+
 
 Common time Complexities:
 1)  O(1)-->Constant Time Complexity
 mostly when there are no loops and only formulae are used. Even in loops this may be possible (calculating sum of elements of an array)
 Therefore the graph plotted between no.of operations(y) and input size n(x) will be parallel to x axis
+
 2)  O(n)-->Linear Time Complexity
 i)  N factorial
 int fact = 1;
@@ -55,6 +60,7 @@ for(int i = 2; i <= n; i++) {
     dp[i] = dp[i - 1] + dp[i - 2];
 }
 here all constant functions k are performed for n times inside the loop. T.C = O(n*k) but as we neglect constants --> T.C = O(n)
+
 3)  O(n^2)
 for(int i = 0; i < n - 1; i++) {
     for(int j = 0; j < n - i - 1; j++) {
@@ -64,9 +70,66 @@ for(int i = 0; i < n - 1; i++) {
     }
 }
 here outer and inner loops run for n times each . So, T.C = O(n^2)
+
 4)  O(n^3)
 where 3 oops are involved . for example: 3D Array
-5)  O(log n)
 
+5)  O(log n)
+binary search:
+int s = 0, e = n-1;
+while(s<=e){
+    int mid = s + (e - s) / 2;
+    if(arr[mid] < target) s = mid + 1;
+    else if(arr[mid] > target) e = mid - 1;
+    else return mid;//ans
+}
+Here, the search space becomes half after each iteration until the required element is found out.
+no.of elements=n/2^0 -->n/2^1 -->n/2^2 -->..... -->n/2^k and the element is found.The final search space =1 in the worst case
+n/2^k = 1 --> n = 2^k --> k=log n (base=2) 
+since the loop runs for k times, T.C = O(log n)
+This T.C is same for binary trees.
+This is the best T.C after O(1)
+
+6)  O(nlog n)
+for greedy algorithm,optimized sorting techniques like merge sort,quick sort(average) e.t.c
+This T.C lies between O(n^2) and O(n)
+
+7)  O(2^n) or O(3^n) or O(4^n).....---->(exponential time complexity)
+mostly seen in recursions.Easily found when bruteforce approach is used in any problem.
+This T.C is considered to be one of the worst T.Cs. It is worse than O(n^3)
+
+8)  O(n!)-->not so common
+for bruteforce approach of problems like n queeens , knights tour, no.of possible permutations of a string e.t.c
+all of the above mentioned problems use recursions
+This T.C is way more worse than the exponential T.C
+
+
+Solving T.Cs of few snippets:
+1)  Prime number:
+for(int i=2;i*i<=n;i++){
+if(n%i==0) return -1;
+}
+Here the loop has constant k work inside it and it runs for sqrt(√n) times. T.C = O(√n)
+
+2)  Selection Sort:
+for(int i=0;i<n-1;i++){
+int min=arr[i];
+for(int j=i+1;j<n;j++){
+if(arr[j]<min) min=arr[j]; arr[j]=arr[i];
+}
+}
+Here inner loop runs for n-i times per i, while the outer loop runs for n times in total
+so, n+n-1+n-2+n-3+.......+1 times = (n*(n+1))/2 times. All these times, it performs a constant operation inside the loop.
+So, T.C = O(n^2)
+We can do this easily by considering the worst case. In the worst case(already sorted), both outer and inner loops run for approximately n times.
+n*n*k---> T.C = O(n^2)
+
+3)Recursion:
+int factorial(int n){
+if(n==0) return 1;
+else return n*factorial(n-1);
+}
+Generally in recursion problems, we have 2 ways to find time complexity
 */
+
 
