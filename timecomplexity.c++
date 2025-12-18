@@ -126,10 +126,26 @@ n*n*k---> T.C = O(n^2)
 
 3)Recursion:
 int factorial(int n){
-if(n==0) return 1;
+if(n==1 ||n==0) return 1;
 else return n*factorial(n-1);
 }
-Generally in recursion problems, we have 2 ways to find time complexity
+Generally in recursion problems, we have 2 ways to find time complexity:  i)Calculating from recurrence relation  ii)no.of recursive calls*work done in each call
+Finding relation and solving it is very mathematical and is not always easy for all teh problems. So, we opt for the other method
+by recurrence relation:
+relation: f(n)   =  k+f(n-1)
+          f(n-1) =  k+f(n-2)
+          f(n-2) =  k+f(n-3)
+                 :
+                 :
+                 :
+          f(2)   =  k+k2      //k2=f(1)=1
+on adding all these relations, we get f(n) = k*n + k2
+So,T.C = O(n)
+by alternative method:
+No.of calls by each recursive function = n and only constan work k is performed in the loop
+So, T.C = O(n)
+
 */
+
 
 
