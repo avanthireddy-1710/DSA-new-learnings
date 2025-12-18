@@ -125,6 +125,7 @@ We can do this easily by considering the worst case. In the worst case(already s
 n*n*k---> T.C = O(n^2)
 
 3)Recursion:
+Factorial:
 int factorial(int n){
 if(n==1 ||n==0) return 1;
 else return n*factorial(n-1);
@@ -144,8 +145,36 @@ So,T.C = O(n)
 by alternative method:
 No.of calls by each recursive function = n and only constan work k is performed in the loop
 So, T.C = O(n)
+Fibonacci:
+int fib(int n){
+if(n==0 || n==1) return n;
+else return fib(n-1)+fib(n-2);
+}
+here function calling tree looks like
 
+                                 --fib(n-3)----------------
+                     --fib(n-2)--
+                                 --fib(n-4)----------------
+         --fib(n-1)--
+                                 --fib(n-4)----------------
+                     --fib(n-3)--
+                                 --fib(n-5)----------------
+fib(n)--
+                                --fib(n-4)-----------------
+                    --fib(n-3)--
+                                --fib(n-5)-----------------
+        --fib(n-2)--
+                                --fib(n-5)-----------------
+                    --fib(n-4)--
+                                --fib(n-6)-----------------
+
+We can make the last layers equal by writing fib(0)
+here no.of calls in 1st layer=2^0,2nd layer=2^1,3rd layer=2^2,..........last layer=2^n-1
+total no.of calls=(2^n)-1 and constant work k is done in each call
+So, T.C = O(2^n)
+                                
 */
+
 
 
 
