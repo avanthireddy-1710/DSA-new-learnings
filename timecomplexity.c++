@@ -223,5 +223,22 @@ no.of layers = log n
 and in each call O(size) work happens i.e., in f(n)-->O(n),in second layer f(n/2) + f(n/2)-->O(n/2)+O(n/2)=O(n)
 In this way, O(n) work happens in each layer. So, T.C = O(nlog n) for the function mergesort
 
+
+Practical Usage:
+Generally, in all coding platforms, there are size constraints for almost all problems. The system of a coding platform can perform 10^8 operations in 1 sec
+and if the code written by us is not performed in that time, it means our code is too bad (not optimized).That is why sometimes codes will pass testcases but will 
+not be submitted.
+example: n<=10^5 constraint is given and if we use 2 loops, T.C = O(n^2) => 10^10 operations will be required which is > 10^8.This code will not be submitted
+
+Whenever we are given the following constraints, the T.Cs which will be accepted are: (TAOs mean The above ones)
+n>10^8  --> O(log n),O(1)
+n<=10^8 --> TAOs + O(n)
+n<=10^6 --> TAOs + O(nlog n) -->Sorting
+n<=10^4 --> TAOs + O(n^2)
+n<=500  --> TAOs + O(n^3)
+n<=25   --> TAOs + O(2^n) -->Recursion Bruteforce
+n<=12   --> TAOs + O(n!) -->Recursion Bruteforce
+
 */
+
 
